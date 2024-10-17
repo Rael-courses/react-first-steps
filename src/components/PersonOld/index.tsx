@@ -1,15 +1,14 @@
 import { useState } from "react";
-import PersonCard from "../PersonCard";
-import Button from "../Button";
 
-export type PersonType = {
+type PersonType = {
   name: string;
   age: number;
 };
 
-export default function Person() {
+export default function PersonOld() {
   const alice: PersonType = { name: "Alice", age: 18 };
   const [person, setPerson] = useState(alice);
+  const type = person.age < 18 ? "Child" : "Adult";
 
   const incrementAge = () => {
     const updatedPerson = {
@@ -29,10 +28,14 @@ export default function Person() {
 
   return (
     <div>
-      <Button label="Decrement" onClick={decrementAge} />
-      <Button label="Increment" onClick={incrementAge} />
+      <button onClick={decrementAge}>Decrement</button>
+      <button onClick={incrementAge}>Increment</button>
 
-      <PersonCard person={person} />
+      <div>
+        <p>Name: {person.name}</p>
+        <p>Age: {person.age}</p>
+        <p>Type: {type}</p>
+      </div>
     </div>
   );
 }
