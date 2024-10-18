@@ -7,10 +7,10 @@ export default function PersonCard() {
   const type = age < 18 ? "Child" : "Adult";
 
   return (
-    <div>
+    <>
       <p>Name: {name}</p>
       <p>Age: {age}</p>
       <p>Type: {type}</p>
-    </div>
+    </>
   );
 }

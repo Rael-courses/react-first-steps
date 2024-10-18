@@ -1,13 +1,7 @@
-import Person from "./components/Person";
-// import PersonOld from "./components/PersonOld";
+import Router from "./Router";
 
 function App() {
-  return (
-    <div>
-      {/* <PersonOld /> */}
-      <Person />
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
