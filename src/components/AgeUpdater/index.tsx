@@ -1,6 +1,12 @@
 import Button from "../Button";
+import { PersonType } from "../Person";
 
-export default function AgeUpdater() {
+type Props = {
+  person: PersonType;
+  setPerson: (person: PersonType) => void;
+};
+
+export default function AgeUpdater({ person, setPerson }: Props) {
   const incrementAge = () => {
     const updatedPerson = {
       ...person,

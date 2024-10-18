@@ -13,7 +13,7 @@ export default function Person() {
 
   return (
     <div>
-      <AgeUpdater />
+      <AgeUpdater person={person} setPerson={setPerson} />
 
       <PersonCard person={person} />
     </div>
