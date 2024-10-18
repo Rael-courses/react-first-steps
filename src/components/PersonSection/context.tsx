@@ -10,7 +10,9 @@ const PersonContext = createContext<PersonContextType | null>(null);
 type Props = PropsWithChildren<{ id: number }>;
 export default function PersonContextProvider({ children, id }: Props) {
   const defaultPerson = persons[id];
-  const [person, setPerson] = useState<PersonType>(defaultPerson);
+  const [person, setPerson] = useState<PersonType>(
+    defaultPerson || { id: 0, name: "Alice", age: 18 }
+  );
 
   const updateAge = (updateMode: "increment" | "decrement") => {
     const updatedPerson = {
