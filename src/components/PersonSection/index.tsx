@@ -7,7 +7,7 @@ type Props = { id: number };
 export default function PersonSection({ id }: Props) {
   return (
     <div>
-      <PersonContextProvider id={0}>
+      <PersonContextProvider id={id}>
         <AgeUpdater />
 
         <PersonCard />
