@@ -1,10 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
-
-type PersonType = {
-  name: string;
-  age: number;
-};
-const alice: PersonType = { name: "Alice", age: 18 };
+import { persons, PersonType } from "../../api/data";
 
 type PersonContextType = {
   person: PersonType;
@@ -12,8 +7,10 @@ type PersonContextType = {
 };
 const PersonContext = createContext<PersonContextType | null>(null);
 
-export default function PersonContextProvider({ children }: PropsWithChildren) {
-  const [person, setPerson] = useState<PersonType>(alice);
+type Props = PropsWithChildren<{ id: number }>;
+export default function PersonContextProvider({ children, id }: Props) {
+  const defaultPerson = persons[id];
+  const [person, setPerson] = useState<PersonType>(defaultPerson);
 
   const updateAge = (updateMode: "increment" | "decrement") => {
     const updatedPerson = {
